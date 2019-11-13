@@ -31,4 +31,16 @@ public class Head {
 		
 	}
 
+	public void sniff() {
+
+
+		this.rightNostril.sniff();
+		this.leftnostril.sniff();
+		HelperClass.wait(1000);
+		rightNostril.unsniff();
+		leftnostril.unsniff();
+		
+		
+	}
+
 }

@@ -31,4 +31,13 @@ public class Sheep {
 		this.lefttLegFront.draw();
 		this.leftLegBack.draw();
 	}
+
+	public void sniff() {
+
+		HelperClass.wait(1000);
+		head.sniff();
+		
+		
+		
+	}
 }
