@@ -6,6 +6,7 @@ public class Main {
 		
 		Sheep dolly = new Sheep(170, 100, Colour.RED);
 		dolly.draw();
+		dolly.sniff();
 	}
 
 }
