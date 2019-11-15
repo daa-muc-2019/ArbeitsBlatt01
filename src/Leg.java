@@ -14,4 +14,7 @@ public class Leg {
 		this.leg.draw();
 	}
 
+	public void erase() {
+		this.leg.erase();
+	}
 }

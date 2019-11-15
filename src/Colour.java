@@ -3,7 +3,6 @@
  * 
  * @author PSe
  */
-
 public enum Colour {
 	WHITE, YELLOW, GREEN, BLUE, MAGENTA, RED, BLACK;
 }

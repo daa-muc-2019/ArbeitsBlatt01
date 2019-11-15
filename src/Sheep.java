@@ -5,39 +5,118 @@ public class Sheep {
 	private Colour colour;
 	private Ellipse body, tail;
 	private Head head;
-	private Leg rightLegBack, rightLegFront, leftLegBack, lefttLegFront;
-	
-	public Sheep(int x, int y, Colour initialColour) {
+	private Leg rightLegBack, rightLegFront, leftLegBack, leftLegFront;
 
+	public Sheep(int x, int y, Colour initialColour) {
 		this.xPos = x;
 		this.yPos = y;
 		this.colour = initialColour;
-		this.head = new Head(xPos-60, yPos-40, initialColour);
-		this.body = new Ellipse(180, 120, xPos, yPos, initialColour);
-		this.tail = new Ellipse(20, 50, xPos+174, yPos+60, initialColour);
-		this.rightLegFront = new Leg(xPos+5, yPos+80);
-		this.rightLegBack = new Leg(xPos+125, yPos+80);
-		this.lefttLegFront = new Leg(xPos+30, yPos+90);
-		this.leftLegBack = new Leg(xPos+150, yPos+90);
-	
+		
+		this.head = new Head(xPos - 60, yPos - 40, this.colour);
+		this.body = new Ellipse(180, 120, xPos, yPos, this.colour);
+		this.tail = new Ellipse(20, 50, xPos + 174, yPos + 60, this.colour);
+		this.rightLegFront = new Leg(xPos + 5, yPos + 80);
+		this.rightLegBack = new Leg(xPos + 125, yPos + 80);
+		this.leftLegFront = new Leg(xPos + 30, yPos + 90);
+		this.leftLegBack = new Leg(xPos + 150, yPos + 90);
 	}
-	
+
 	void draw() {
 		this.head.draw();
 		this.rightLegBack.draw();
 		this.rightLegFront.draw();
 		this.body.draw();
 		this.tail.draw();
-		this.lefttLegFront.draw();
+		this.leftLegFront.draw();
 		this.leftLegBack.draw();
 	}
 
 	public void sniff() {
-
 		HelperClass.wait(1000);
-		head.sniff();
-		
-		
-		
+		this.head.sniff();
+	}
+
+	public void wagEar() {
+		HelperClass.wait(10000);
+		this.head.wagEear();
+	}
+
+	public void eat() {
+		this.erase();
+		this.draw();
+		HelperClass.wait(1000);
+		this.head.bringHeadDown();
+		HelperClass.wait(1000);
+		this.body.setVerticalLength(160);
+		this.body.draw();
+		this.leftLegBack.draw();
+		this.leftLegFront.draw();
+		this.head.draw();
+		HelperClass.wait(1000);
+		this.getSick();
+		HelperClass.wait(1000);
+		this.head.bringHeadUp();
+		HelperClass.wait(1000);		
+	}
+
+	private void erase() {
+		this.body.erase();
+		this.tail.erase();
+		this.head.erase();
+		this.rightLegBack.erase();
+		this.rightLegFront.erase();
+		this.leftLegBack.erase();
+		this.leftLegFront.erase();
+	}
+
+	private void getSick() {
+		HelperClass.wait(1000);
+		this.head.setColour(Colour.GREEN);
+	}
+	
+	public void getWell() {
+		HelperClass.wait(1000);
+		head.setColour(Colour.RED);
+	}
+
+	public void sleep() {
+		this.head.sleep();
+		HelperClass.wait(1000);		
+	}
+
+	public void wakeUp() {
+		head.wakeUp();
+		HelperClass.wait(1000);		
+	}
+
+	public void digest() {
+		HelperClass.wait(1000);
+		this.body.setVerticalLength(120);
+		this.getWell();
+		this.body.draw();
+		this.leftLegBack.draw();
+		this.leftLegFront.draw();		
+	}
+
+	public void wagTail() {
+		this.tail.erase();
+		this.tail.move(0, -15);
+		this.tail.setHorizontalLength(50);
+		this.tail.setVerticalLength(20);
+		this.tail.draw();
+		HelperClass.wait(500);
+		this.tail.erase();
+		this.tail.move(0, -40);
+		this.tail.setHorizontalLength(20);
+		this.tail.setVerticalLength(50);
+		this.tail.draw();
+		HelperClass.wait(500);
+		this.tail.erase();
+		this.tail.move(0, 55);
+		this.tail.draw();		
+	}
+
+	public void wink() {
+		this.head.wink();		
 	}
 }

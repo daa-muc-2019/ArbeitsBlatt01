@@ -11,19 +11,19 @@ public class GivenMain{
   
   sheep.sniff();
   
-//  sheep.wagEar();
-//  
-//  sheep.eat();
-//  
-//  sheep.sleep();
-//  
-//  sheep.wakeUp();
-//  
-//  sheep.digest();
-//  
-//  sheep.wagTail();
-//  
-//  sheep.wink();
+  sheep.wagEar();
+  
+  sheep.eat();
+  
+  sheep.sleep();
+  
+  sheep.wakeUp();
+  
+  sheep.digest();
+  
+  sheep.wagTail();
+  
+  sheep.wink();
  
 
  }
