@@ -1,3 +1,8 @@
+package de.bundeswehr.sheep;
+
+import de.bundeswehr.graphics.Colour;
+import de.bundeswehr.graphics.Ellipse;
+import de.bundeswehr.graphics.HelperClass;
 
 public class Sheep {
 
@@ -11,7 +16,7 @@ public class Sheep {
 		this.xPos = x;
 		this.yPos = y;
 		this.colour = initialColour;
-		
+
 		this.head = new Head(xPos - 60, yPos - 40, this.colour);
 		this.body = new Ellipse(180, 120, xPos, yPos, this.colour);
 		this.tail = new Ellipse(20, 50, xPos + 174, yPos + 60, this.colour);
@@ -21,7 +26,7 @@ public class Sheep {
 		this.leftLegBack = new Leg(xPos + 150, yPos + 90);
 	}
 
-	void draw() {
+	public void draw() {
 		this.head.draw();
 		this.rightLegBack.draw();
 		this.rightLegFront.draw();
@@ -36,16 +41,25 @@ public class Sheep {
 		this.head.sniff();
 	}
 
-	public void wagEar() {
-		HelperClass.wait(10000);
-		this.head.wagEear();
+	public void sleep() {
+		this.head.sleep();
+		HelperClass.wait(1000);
+	}
+
+	public void wakeUp() {
+		head.wakeUp();
+		HelperClass.wait(1000);
+	}
+
+	public void wink() {
+		this.head.wink();
 	}
 
 	public void eat() {
 		this.erase();
 		this.draw();
 		HelperClass.wait(1000);
-		this.head.bringHeadDown();
+		this.head.lower();
 		HelperClass.wait(1000);
 		this.body.setVerticalLength(160);
 		this.body.draw();
@@ -55,38 +69,18 @@ public class Sheep {
 		HelperClass.wait(1000);
 		this.getSick();
 		HelperClass.wait(1000);
-		this.head.bringHeadUp();
-		HelperClass.wait(1000);		
-	}
-
-	private void erase() {
-		this.body.erase();
-		this.tail.erase();
-		this.head.erase();
-		this.rightLegBack.erase();
-		this.rightLegFront.erase();
-		this.leftLegBack.erase();
-		this.leftLegFront.erase();
+		this.head.rise();
+		HelperClass.wait(1000);
 	}
 
 	private void getSick() {
 		HelperClass.wait(1000);
 		this.head.setColour(Colour.GREEN);
 	}
-	
+
 	public void getWell() {
 		HelperClass.wait(1000);
 		head.setColour(Colour.RED);
-	}
-
-	public void sleep() {
-		this.head.sleep();
-		HelperClass.wait(1000);		
-	}
-
-	public void wakeUp() {
-		head.wakeUp();
-		HelperClass.wait(1000);		
 	}
 
 	public void digest() {
@@ -95,7 +89,12 @@ public class Sheep {
 		this.getWell();
 		this.body.draw();
 		this.leftLegBack.draw();
-		this.leftLegFront.draw();		
+		this.leftLegFront.draw();
+	}
+	
+	public void wagEar() {
+		HelperClass.wait(10000);
+		this.head.wagEear();
 	}
 
 	public void wagTail() {
@@ -113,10 +112,17 @@ public class Sheep {
 		HelperClass.wait(500);
 		this.tail.erase();
 		this.tail.move(0, 55);
-		this.tail.draw();		
+		this.tail.draw();
 	}
 
-	public void wink() {
-		this.head.wink();		
+	private void erase() {
+		this.body.erase();
+		this.tail.erase();
+		this.head.erase();
+		this.rightLegBack.erase();
+		this.rightLegFront.erase();
+		this.leftLegBack.erase();
+		this.leftLegFront.erase();
 	}
+
 }

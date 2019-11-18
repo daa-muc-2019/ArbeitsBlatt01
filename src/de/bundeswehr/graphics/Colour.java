@@ -1,5 +1,6 @@
+package de.bundeswehr.graphics;
 /**
- * Enumerates colour values that we allow in our circlesw.
+ * Enumerates colour values that we allow in our circles.
  * 
  * @author PSe
  */

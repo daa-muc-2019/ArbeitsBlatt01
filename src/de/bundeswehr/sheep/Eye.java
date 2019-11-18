@@ -1,11 +1,15 @@
+package de.bundeswehr.sheep;
 
-public class Eye {
+import de.bundeswehr.graphics.Colour;
+import de.bundeswehr.graphics.Ellipse;
+
+class Eye {
 
 	private int xPos, yPos;
 	private Ellipse iris, pupil, eyeLid;
 	private Colour colour;
 
-	public Eye(int x, int y, Colour initialColour) {
+	Eye(int x, int y, Colour initialColour) {
 
 		this.xPos = x;
 		this.yPos = y;
@@ -22,30 +26,30 @@ public class Eye {
 		this.pupil.draw();
 	}
 
-	public void move(int xDelta, int yDelta) {
-		pupil.move(xDelta, yDelta);
-		iris.move(xDelta, yDelta);
-		eyeLid.move(xDelta, yDelta);
+	void closeEyeLid() {
+		eyeLid.draw();
 	}
 
-	public void setColour(Colour initialColour) {
+	void openEyeLid() {
+		eyeLid.erase();
+	}
+
+	void setColour(Colour initialColour) {
 		this.colour = initialColour;
 
 		eyeLid.erase();
 		eyeLid.setColour(initialColour);
 	}
 
-	public void erase() {
+	void move(int xDelta, int yDelta) {
+		pupil.move(xDelta, yDelta);
+		iris.move(xDelta, yDelta);
+		eyeLid.move(xDelta, yDelta);
+	}
+
+	void erase() {
 		this.iris.erase();
 		this.pupil.erase();
 		this.eyeLid.erase();
-	}
-
-	public void closeEyeLid() {
-		eyeLid.draw();
-	}
-
-	public void openEyeLid() {
-		eyeLid.erase();
 	}
 }

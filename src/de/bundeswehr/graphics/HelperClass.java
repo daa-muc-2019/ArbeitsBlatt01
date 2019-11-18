@@ -1,3 +1,4 @@
+package de.bundeswehr.graphics;
 /**
  * Contains helper methods such as wait.
  * 

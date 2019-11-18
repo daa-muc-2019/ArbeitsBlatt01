@@ -1,20 +1,24 @@
+package de.bundeswehr.sheep;
 
-public class Leg {
+import de.bundeswehr.graphics.Colour;
+import de.bundeswehr.graphics.Ellipse;
+
+class Leg {
 
 	private int xPos, yPos;
 	private Ellipse leg;
 
-	public Leg(int x, int y) {
+	Leg(int x, int y) {
 		this.xPos = x;
 		this.yPos = y;
 		this.leg = new Ellipse(20, 80, xPos, yPos, Colour.BLACK);
 	}
 
-	public void draw() {
+	void draw() {
 		this.leg.draw();
 	}
 
-	public void erase() {
+	void erase() {
 		this.leg.erase();
 	}
 }

@@ -1,11 +1,14 @@
+package de.bundeswehr.sheep;
 
-public class Ear {
+import de.bundeswehr.graphics.*;;
+
+class Ear {
 
 	private int xPos, yPos;
 	private Ellipse ear;
 	private Colour colour;
 
-	public Ear(int x, int y, Colour initialColour) {
+	Ear(int x, int y, Colour initialColour) {
 		this.xPos = x;
 		this.yPos = y;
 		this.colour = initialColour;
@@ -13,11 +16,11 @@ public class Ear {
 		this.ear = new Ellipse(50, 20, xPos, yPos, this.colour);
 	}
 
-	public void draw() {
+	void draw() {
 		this.ear.draw();
 	}
 
-	public void wagEar() {
+	void wagEar() {
 		this.ear.erase();
 		this.ear.setHorizontalLength(20);
 		this.ear.setVerticalLength(50);
@@ -31,17 +34,17 @@ public class Ear {
 		this.ear.draw();
 	}
 
-	public void move(int xDelta, int yDelta) {
-		ear.move(xDelta, yDelta);
-	}
-
-	public void setColour(Colour initialColour) {
+	void setColour(Colour initialColour) {
 		this.colour = initialColour;
-		
+
 		ear.setColour(initialColour);
 	}
 
-	public void erase() {
+	void move(int xDelta, int yDelta) {
+		ear.move(xDelta, yDelta);
+	}
+
+	void erase() {
 		this.ear.erase();
 	}
 }

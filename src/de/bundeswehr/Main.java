@@ -1,3 +1,7 @@
+package de.bundeswehr;
+
+import de.bundeswehr.graphics.Colour;
+import de.bundeswehr.sheep.Sheep;
 
 public class Main {
 
