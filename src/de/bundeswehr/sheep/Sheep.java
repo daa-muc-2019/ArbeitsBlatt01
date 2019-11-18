@@ -93,7 +93,7 @@ public class Sheep {
 	}
 	
 	public void wagEar() {
-		HelperClass.wait(10000);
+		HelperClass.wait(1000);
 		this.head.wagEear();
 	}
 
